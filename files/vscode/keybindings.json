@@ -1,0 +1,300 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "workbench.action.terminal.paste",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "-workbench.action.terminal.paste",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "workbench.action.terminal.copySelection",
+        "when": "terminalFocus && terminalProcessSupported && terminalTextSelected && terminalTextSelected"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.copySelection",
+        "when": "terminalFocus && terminalProcessSupported && terminalTextSelected && terminalTextSelected"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+    },
+    // https://stackoverflow.com/a/48568520/4391249
+    {
+        "key": "ctrl+up", // whatever keybinding you want
+        "command": "cursorMove",
+        "args": {
+            "to": "up",
+            "by": "line",
+            "value": 5 // change this if you want
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+down", // whatever keybinding you want
+        "command": "cursorMove",
+        "args": {
+            "to": "down",
+            "by": "line",
+            "value": 5 // change
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "cursorRedo"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "-redo"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "cursorUndo",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-cursorUndo",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "-notebook.cell.split",
+        "when": "editorTextFocus && inputFocus && notebookEditorFocused"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "-workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "workbench.action.navigateToLastEditLocation"
+    },
+    {
+        "key": "ctrl+k ctrl+q",
+        "command": "-workbench.action.navigateToLastEditLocation"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "-workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+f3",
+        "command": "-editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+d",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "breakpoint()"
+        }
+    },
+    {
+        "key": "ctrl+k ctrl+t",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "try:\nexcept:\n    breakpoint()"
+        }
+    },
+    {
+        "key": "ctrl+k ctrl+n",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "np.set_printoptions(formatter={'float': lambda f: f\"{'+' if not str(f).startswith('-') else ''}{f:.3e}\" if abs(f) > 1e-16 else \" \" * 10}, linewidth=200)"
+        }
+    },
+    {
+        "key": "ctrl+k ctrl+b",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "\\mathbf{"
+        }
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "workbench.action.navigateBackInEditLocations"
+    },
+    {
+        "key": "ctrl+shift+=",
+        "command": "workbench.action.navigateForwardInEditLocations"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "ctrl+alt+-",
+        "command": "-workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "ctrl+alt+=",
+        "command": "editor.action.fontZoomIn"
+    },
+    {
+        "key": "ctrl+alt+-",
+        "command": "editor.action.fontZoomOut"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "alt+1",
+        "command": "workbench.action.terminal.focusAtIndex1",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+2",
+        "command": "workbench.action.terminal.focusAtIndex2",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+3",
+        "command": "workbench.action.terminal.focusAtIndex3",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+4",
+        "command": "workbench.action.terminal.focusAtIndex4",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+5",
+        "command": "workbench.action.terminal.focusAtIndex5",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-inlineChat.startWithCurrentLine",
+        "when": "editorFocus && github.copilot.chat.editor.enableLineTrigger && inlineChatHasProvider && !editorReadonly && !inlineChatVisible"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-workbench.action.toggleDevTools",
+        "when": "isDevelopment"
+    },
+    {
+        "key": "ctrl+shift+alt+i",
+        "command": "workbench.action.chat.open",
+        "when": "chatPanelParticipantRegistered || chatSetupInstalled"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "-workbench.action.chat.open",
+        "when": "chatPanelParticipantRegistered || chatSetupInstalled"
+    },
+    {
+        "key": "ctrl+k ctrl+c",
+        "command": "workbench.panel.chat",
+        "when": "workbench.panel.chat.view.copilot.active"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "-workbench.panel.chat",
+        "when": "workbench.panel.chat.view.copilot.active"
+    },
+    {
+        "key": "ctrl+k ctrl+c",
+        "command": "-editor.action.addCommentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+k ctrl+c",
+        "command": "-notebook.cell.collapseCellInput",
+        "when": "notebookCellListFocused && !inputFocus && !notebookCellInputIsCollapsed"
+    },
+    {
+        "key": "ctrl+k ctrl+c",
+        "command": "-notebook.cell.expandCellInput",
+        "when": "notebookCellInputIsCollapsed && notebookCellListFocused"
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "-editor.debug.action.showDebugHover",
+        "when": "editorTextFocus && inDebugMode"
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "-editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "-workbench.action.terminal.focusHover",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalIsOpen || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "-list.showHover",
+        "when": "listFocus && !inputFocus && !treestickyScrollFocused"
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "workbench.action.terminal.chat.start",
+        "when": "terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-workbench.action.terminal.chat.start",
+        "when": "terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+k i",
+        "command": "-inlineChat.startWithCurrentLine",
+        "when": "inlineChatHasProvider && !editorReadonly && !inlineChatVisible"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-inlineChat.startWithCurrentLine",
+        "when": "inlineChatHasProvider && inlineChatShowingHint && !editorReadonly && !inlineChatVisible"
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && inlineChatPossible && !editorReadonly && !editorSimpleInput"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && inlineChatPossible && !editorReadonly && !editorSimpleInput"
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "github.copilot.chat.attachSelection",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "settings.cycle.copilotEnable",
+        "when": "editorTextFocus"
+    }
+]

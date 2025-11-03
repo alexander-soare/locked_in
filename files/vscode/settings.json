@@ -1,0 +1,90 @@
+{
+    "editor.rulers": [
+        110
+    ],
+    "editor.selectionClipboard": false,
+    "explorer.confirmDragAndDrop": false,
+    "breadcrumbs.enabled": true,
+    "editor.detectIndentation": false,
+    "cSpell.languageSettings": [
+        // This one works with python
+        {
+            "languageId": "python",
+            "includeRegExpList": [
+                "/#.*/",
+                "/('''|\"\"\")[^\\1]+?\\1/g"
+            ]
+        },
+        // this one works with javascript, C, typescript, etc, 
+        // but you need to copy it and change the language id.
+        {
+            "languageId": "cpp",
+            "includeRegExpList": [
+                "CStyleComment"
+            ]
+        }
+    ],
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.tabSize": 2
+    },
+    "cmake.configureOnOpen": true,
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Default Dark+",
+    "pasteImage.basePath": "${currentFileDir}/.images",
+    "outline.showVariables": false,
+    "outline.showConstants": false,
+    "files.associations": {
+        "*.log.*": "log",
+        "requirements.txt.lock": "pip-requirements"
+    },
+    "python.terminal.activateEnvironment": false,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "window.zoomLevel": 1,
+    "cmake.showOptionsMovedNotification": false,
+    "workbench.startupEditor": "none",
+    "python.createEnvironment.trigger": "off",
+    "gitlens.views.scm.grouped.views": {
+        "commits": true,
+        "branches": true,
+        "remotes": true,
+        "stashes": true,
+        "tags": true,
+        "worktrees": true,
+        "contributors": true,
+        "repositories": false,
+        "searchAndCompare": true,
+        "launchpad": false
+    },
+    "ruff.lint.enable": false,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "Default Dark+",
+    "debug.javascript.autoAttachFilter": "disabled",
+    "window.titleBarStyle": "native",
+    "terminal.integrated.fontSize": 13,
+    "explorer.confirmDelete": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "redhat.telemetry.enabled": false,
+    "github.copilot.enable": {
+        "*": false
+    },
+    "workbench.preferredDarkColorTheme": "Default Dark+",
+    "settings.cycle": [
+        {
+            "id": "copilotEnable", // must match the id in the command
+            "overrideWorkspaceSettings": true, // flip it everywhere (optional)
+            "values": [
+                {
+                    "github.copilot.enable": {
+                        "*": true
+                    }
+                },
+                {
+                    "github.copilot.enable": {
+                        "*": false
+                    }
+                }
+            ]
+        }
+    ]
+}
