@@ -47,4 +47,17 @@ then
     echo "✅ Done."
 fi
 
+if command -v nvidia-smi &> /dev/null
+then
+    if ! command -v nvtop &> /dev/null
+    then
+        echo "⚙️ nvtop could not be found, installing nvtop..."
+        sudo add-apt-repository ppa:quentiumyt/nvtop -y
+        sudo apt install nvtop -y
+        echo "✅ Done."
+    fi
+else
+    echo "⚠️ nvidia-smi command not available. Skipping nvtop installation"
+fi
+
 echo "All done. Now restart your shell our run \`source ~/.bashrc\`"
