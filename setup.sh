@@ -60,4 +60,4 @@ else
     echo "⚠️ nvidia-smi command not available. Skipping nvtop installation"
 fi
 
-echo "All done. Now restart your shell our run \`source ~/.bashrc\`"
+echo "All done. Now restart your shell or run \`source ~/.bashrc\`"
