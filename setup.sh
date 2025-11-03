@@ -11,7 +11,7 @@ echo "✅ Done."
 # Check if git is installed, and if not, install it.
 if ! command -v git &> /dev/null
 then
-    echo "git could not be found, installing git..."
+    echo "⚙️ git could not be found, installing git..."
     sudo apt update
     sudo apt install -y git
     echo "✅ Done."
@@ -39,5 +39,12 @@ fi
 echo "⚙️ Installing XCompose setup"
 cp files/XCompose ~/.XCompose
 echo "✅ Done."
+
+if ! command -v uv &> /dev/null
+then
+    echo "⚙️ uv could not be found, installing uv..."
+    wget -qO- https://astral.sh/uv/install.sh | sh
+    echo "✅ Done."
+fi
 
 echo "All done. Now restart your shell our run \`source ~/.bashrc\`"
