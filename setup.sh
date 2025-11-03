@@ -4,8 +4,8 @@ set -e
 
 # Custom bash setup.
 echo "⚙️ Installing custom bash setup"
-cp files/bashrc_custom.sh ~/.bashrc_custom
-echo "source ~/.bashrc_custom.sh" >> ~/.bashrc.sh
+cp files/bashrc_custom ~/.bashrc_custom
+echo "source ~/.bashrc_custom" >> ~/.bashrc
 echo "✅ Done."
 
 # Check if git is installed, and if not, install it.
