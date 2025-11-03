@@ -41,4 +41,3 @@ cp files/XCompose ~/.XCompose
 echo "✅ Done."
 
 source ~/.bashrc
-source ~/.xsessionrc
