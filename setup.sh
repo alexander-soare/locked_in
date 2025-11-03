@@ -40,4 +40,4 @@ echo "⚙️ Installing XCompose setup"
 cp files/XCompose ~/.XCompose
 echo "✅ Done."
 
-source ~/.bashrc
+echo "All done. Now restart your shell our run \`source ~/.bashrc\`"
