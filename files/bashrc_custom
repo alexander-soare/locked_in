@@ -32,4 +32,9 @@ fi
 alias pbcopy="xclip -selection clipboard"
 
 # aws
-alias aws-ec2-list-instances="aws ec2 describe-instances --query \"Reservations[*].Instances[*].{InstanceId:InstanceId,Name:Tags[?Key=='Name'].Value|[0],State:State.Name}\" --output table"
+alias aws-ec2-list-instances='for region in us-west-2 us-east-1 us-east-2; do \
+  echo "===== Region: $region ====="; \
+  aws ec2 describe-instances --region $region \
+    --query "Reservations[*].Instances[*].{InstanceId:InstanceId,Name:Tags[?Key==\`Name\`].Value|[0],State:State.Name,PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress}" \
+    --output table; \
+done'
