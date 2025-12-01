@@ -105,5 +105,4 @@ if [ $WORK -eq 1 ] && ( ! command -v aws >/dev/null 2>&1 || ! aws --version 2 | 
     echo "✅ Done."
 fi
 
-
 echo "All done. Now restart your shell or run \`source ~/.bashrc\`"
