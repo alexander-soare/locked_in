@@ -96,7 +96,7 @@ then
 fi
 
 # AWS
-if [ $WORK -eq 1 ] && ( ! command -v aws >/dev/null 2>&1 || ! aws --version 2 | grep -q 'aws-cli/2' ); then
+if [ $WORK -eq 1 ] && ( ! command -v aws >/dev/null 2>&1 || ! aws --version | grep -q 'aws-cli/2' ); then
     echo "⚙️  aws-cli v2 could not be found, installing aws-cli v2..."
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
     unzip awscliv2.zip
