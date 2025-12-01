@@ -40,6 +40,7 @@ echo "⚙️ Installing XCompose setup"
 cp files/XCompose ~/.XCompose
 echo "✅ Done."
 
+# UV
 if ! command -v uv &> /dev/null
 then
     echo "⚙️ uv could not be found, installing uv..."
@@ -47,6 +48,7 @@ then
     echo "✅ Done."
 fi
 
+# Nvtop
 if command -v nvidia-smi &> /dev/null
 then
     if ! command -v nvtop &> /dev/null
@@ -58,6 +60,15 @@ then
     fi
 else
     echo "⚠️ nvidia-smi command not available. Skipping nvtop installation"
+fi
+
+# Docker
+if command -v docker &> /dev/null
+then
+    echo "⚙️ Docker found. Adding user to docker group..."
+    sudo usermod -aG docker $USER
+    newgrp docker
+    echo "✅ Done."
 fi
 
 echo "All done. Now restart your shell or run \`source ~/.bashrc\`"
