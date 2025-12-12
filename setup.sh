@@ -95,6 +95,14 @@ then
     echo "✅ Done."
 fi
 
+# ncdu
+if command -v ncdu &> /dev/null
+then
+    echo "⚙️  ncdu not found. Installing ncdu..."
+    sudo apt install ncdu -y
+    echo "✅ Done."
+fi
+
 # AWS
 if [ $WORK -eq 1 ] && ( ! command -v aws >/dev/null 2>&1 || ! aws --version | grep -q 'aws-cli/2' ); then
     echo "⚙️  aws-cli v2 could not be found, installing aws-cli v2..."
