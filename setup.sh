@@ -113,4 +113,12 @@ if [ $WORK -eq 1 ] && ( ! command -v aws >/dev/null 2>&1 || ! aws --version | gr
     echo "✅ Done."
 fi
 
+# xclip
+if command -v xclip &> /dev/null
+then
+    echo "⚙️  xclip not found. Installing xclip..."
+    sudo apt install xclip -y
+    echo "✅ Done."
+fi
+
 echo "All done. Now restart your shell or run \`source ~/.bashrc\`"
