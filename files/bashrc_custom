@@ -20,8 +20,8 @@ BLUE="\[\033[0;34m\]"
 RESET="\[\033[0m\]"
 export PS1="${BOLD_GREEN}\u@\h:${BOLD_BLUE}\W${RED} \$(parse_git_branch)${RESET}\$ "
 
-# Debugpython
-alias debugpython="python -m debugpy --listen 51350 --wait-for-client"
+# Debugpy. Use this like uv run $DBP -m scripts.script.
+export DBP="-m debugpy --listen 0.0.0.0:5678 --wait-for-client"
 
 # Add fzf key bindings and fuzzy completion
 if [[ -f ~/.fzf.bash ]]; then
