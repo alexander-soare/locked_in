@@ -74,7 +74,7 @@ then
 fi
 
 # Nvtop
-if command -v nvidia-smi &> /dev/null
+if ! command -v nvidia-smi &> /dev/null
 then
     if ! command -v nvtop &> /dev/null
     then
@@ -88,7 +88,7 @@ else
 fi
 
 # Docker
-if command -v docker &> /dev/null
+if ! command -v docker &> /dev/null
 then
     echo "⚙️  docker found. Adding user to docker group..."
     sudo usermod -aG docker $USER
@@ -96,7 +96,7 @@ then
 fi
 
 # ncdu
-if command -v ncdu &> /dev/null
+if ! command -v ncdu &> /dev/null
 then
     echo "⚙️  ncdu not found. Installing ncdu..."
     sudo apt install ncdu -y
@@ -114,7 +114,7 @@ if [ $WORK -eq 1 ] && ( ! command -v aws >/dev/null 2>&1 || ! aws --version | gr
 fi
 
 # xclip
-if command -v xclip &> /dev/null
+if ! command -v xclip &> /dev/null
 then
     echo "⚙️  xclip not found. Installing xclip..."
     sudo apt install xclip -y
