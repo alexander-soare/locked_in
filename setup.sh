@@ -93,7 +93,7 @@ else
 fi
 
 # Docker
-if ! command -v docker &> /dev/null
+if command -v docker &> /dev/null
 then
     echo "⚙️  docker found. Adding user to docker group..."
     sudo usermod -aG docker $USER
