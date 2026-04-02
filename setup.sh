@@ -3,11 +3,16 @@
 set -e
 
 WORK=0
+GUI=0
 
 while [[ $# -gt 0 ]]; do
     case $1 in
     --work)
         WORK=1
+        shift 1
+        ;;
+    --gui)
+        GUI=1
         shift 1
         ;;
     *)
@@ -118,6 +123,13 @@ if ! command -v xclip &> /dev/null
 then
     echo "⚙️  xclip not found. Installing xclip..."
     sudo apt install xclip -y
+    echo "✅ Done."
+fi
+
+if [ $GUI -eq 1 ] && (! command -v brave &> /dev/null)
+then
+    echo "⚙️  Brave browser not found. Installing Brave..."
+    curl -fsS https://dl.brave.com/install.sh | sh
     echo "✅ Done."
 fi
 
