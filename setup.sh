@@ -126,7 +126,7 @@ then
     echo "✅ Done."
 fi
 
-if [ $GUI -eq 1 ] && (! command -v brave &> /dev/null)
+if [ $GUI -eq 1 ] && (! command -v brave-browser &> /dev/null)
 then
     echo "⚙️  Brave browser not found. Installing Brave..."
     curl -fsS https://dl.brave.com/install.sh | sh
