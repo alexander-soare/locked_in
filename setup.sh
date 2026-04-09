@@ -133,4 +133,24 @@ then
     echo "✅ Done."
 fi
 
+if [ $GUI -eq 1 ]
+then
+    echo "⚙️  Installing GNOME extension 'Always Show Titles in Overview'..."
+    # Install the installer if it's not available.
+    if ! command -v gnome-shell-extension-installer &> /dev/null
+    then
+        sudo wget -O /usr/local/bin/gnome-shell-extension-installer \
+            https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer
+        sudo chmod +x /usr/local/bin/gnome-shell-extension-installer
+    fi
+    # Install the extension
+    gnome-shell-extension-installer 1689
+    # Enable the extension
+    EXT_UUID=$(gnome-extensions list | grep -i 'Always-Show-Titles-In-Overview@gmail.com' | head -n1)
+    if [ -n "$EXT_UUID" ]; then
+        gnome-extensions enable "$EXT_UUID" || true
+    fi
+    echo "✅ Done. You may need to log out and back in for the extension to load."
+fi
+
 echo "All done. Now restart your shell or run \`source ~/.bashrc\`"
