@@ -6,7 +6,7 @@ allowed-tools: Bash(git commit *), Bash(git diff *), Bash(git log *), Bash(git s
 
 Usage:
 
-Commit message: $1
+/commit "Commit message here"
 
 ## Rules
 
@@ -18,4 +18,4 @@ Do not use tools not in the allowed-tools.
 
 2. Sense check the staged changes. This step is mandatory and substantive: read the diff critically, flag dead code, stale references, broken wiring, docstring/code mismatches, and logical.Feel free to ask the user questions if needed. DO NOT make your own edits.
 
-3. Commit, ONLY after surfacing concerns and getting the user's explicit go-ahead (or confirming there are no concerns)
+3. Commit, using the user provided commit message, ONLY after surfacing concerns and getting the user's explicit go-ahead (or confirming there are no concerns)
