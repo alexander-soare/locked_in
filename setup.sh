@@ -4,6 +4,7 @@ set -e
 
 WORK=0
 GUI=0
+CLAUDE=0
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -13,6 +14,10 @@ while [[ $# -gt 0 ]]; do
         ;;
     --gui)
         GUI=1
+        shift 1
+        ;;
+    --claude)
+        CLAUDE=1
         shift 1
         ;;
     *)
@@ -152,5 +157,25 @@ then
     fi
     echo "✅ Done. You may need to log out and back in for the extension to load."
 fi
+
+if [ $CLAUDE -eq 1 ]
+then
+    if ! command -v claude &> /dev/null
+    then
+        echo "⚙️  claude not found. Installing claude..."
+        curl -fsSL https://claude.ai/install.sh | bash
+        echo "✅ Done."
+    fi
+    echo "⚙️  installing claude skills"
+    mkdir -p ~/.claude/skills
+    for skill in files/claude_skills/*/; do
+        skill_name=$(basename "$skill")
+        echo -e "  ⚙️  installing skill: \033[0;32m$skill_name\033[0m"
+        cp -r "$skill" ~/.claude/skills
+    done
+    echo "✅ Done."
+fi
+
+
 
 echo "All done. Now restart your shell or run \`source ~/.bashrc\`"
