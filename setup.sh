@@ -155,6 +155,8 @@ then
     if [ -n "$EXT_UUID" ]; then
         gnome-extensions enable "$EXT_UUID" || true
     fi
+    # Make sure user extensions are not disabled globally.
+    gsettings set org.gnome.shell disable-user-extensions false
     echo "✅ Done. You may need to log out and back in for the extension to load."
 fi
 
