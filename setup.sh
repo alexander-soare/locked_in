@@ -36,6 +36,7 @@ sudo apt update
 
 # Install terminator and update config
 sudo apt install -y terminator
+mkdir -p ~/.config/terminator
 cp files/terminator_config ~/.config/terminator/config
 
 # Check if git is installed, and if not, install it.
