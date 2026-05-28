@@ -1,0 +1,17 @@
+[global_config]
+[keybindings]
+  copy = <Ctrl>c
+  paste = <Ctrl>v
+[profiles]
+  [[default]]
+    background_color = "#380c2a"
+    foreground_color = "#f6f5f4"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

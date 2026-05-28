@@ -32,11 +32,16 @@ cp files/bashrc_custom ~/.bashrc_custom
 echo -e "\nsource ~/.bashrc_custom" >> ~/.bashrc
 echo "✅ Done."
 
+sudo apt update
+
+# Install terminator and update config
+sudo apt install -y terminator
+cp files/terminator_config ~/.config/terminator/config
+
 # Check if git is installed, and if not, install it.
 if ! command -v git &> /dev/null
 then
     echo "⚙️  git could not be found, installing git..."
-    sudo apt update
     sudo apt install -y git
     echo "✅ Done."
 fi
