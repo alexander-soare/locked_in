@@ -16,6 +16,6 @@ Do not use tools not in the allowed-tools.
 
 1. Check that there are staged changes. If not, stop and let the user know.
 
-2. Sense check the staged changes. This step is mandatory and substantive: read the diff critically, flag dead code, stale references, broken wiring, docstring/code mismatches, and logical.Feel free to ask the user questions if needed. DO NOT make your own edits.
+2. Sense check the staged changes. This step is mandatory and substantive: read the diff critically, flag dead code, stale references, broken wiring, docstring/code mismatches, and logical errors. Feel free to ask the user questions if needed. DO NOT make your own edits.
 
 3. Commit, using the user provided commit message, ONLY after surfacing concerns and getting the user's explicit go-ahead (or confirming there are no concerns)
