@@ -90,7 +90,7 @@ then
 fi
 
 # Nvtop
-if ! command -v nvidia-smi &> /dev/null
+if command -v nvidia-smi &> /dev/null
 then
     if ! command -v nvtop &> /dev/null
     then
