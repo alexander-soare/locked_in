@@ -174,6 +174,9 @@ then
         curl -fsSL https://claude.ai/install.sh | bash
         echo "✅ Done."
     fi
+    echo "⚙️  installing CLAUDE.md"
+    mkdir -p ~/.claude
+    cp files/CLAUDE.md ~/.claude
     echo "⚙️  installing claude skills"
     mkdir -p ~/.claude/skills
     for skill in files/claude_skills/*/; do
