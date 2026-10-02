@@ -192,16 +192,31 @@ then
         curl -fsSL https://claude.ai/install.sh | bash
         echo "✅ Done."
     fi
-    echo "⚙️  installing CLAUDE.md"
-    mkdir -p ~/.claude
-    cp files/CLAUDE.md ~/.claude
-    echo "⚙️  installing claude skills"
-    mkdir -p ~/.claude/skills
-    for skill in files/claude_skills/*/; do
-        skill_name=$(basename "$skill")
-        echo -e "  ⚙️  installing skill: \033[0;32m$skill_name\033[0m"
-        cp -r "$skill" ~/.claude/skills
-    done
+    # jq is needed by the claude statusline
+    if ! command -v jq &> /dev/null
+    then
+        echo "⚙️  jq not found. Installing jq..."
+        sudo apt install jq -y
+        echo "✅ Done."
+    fi
+    echo "⚙️  installing Claude config"
+    # Copy file by file so that existing files are only overwritten with consent.
+    while IFS= read -r -d '' src <&3; do
+        rel=${src#files/claude/}
+        dest=~/.claude/$rel
+        if [ -f "$dest" ] && ! cmp -s "$src" "$dest"; then
+            echo -e "⚠️  \033[0;32m~/.claude/$rel\033[0m already exists and differs:"
+            diff -u --color=auto "$dest" "$src" || true
+            read -p "Overwrite? [y/N] " -n 1 -r reply
+            echo
+            if [[ ! $reply =~ ^[Yy]$ ]]; then
+                echo "  ⏭️  skipping $rel"
+                continue
+            fi
+        fi
+        mkdir -p "$(dirname "$dest")"
+        cp "$src" "$dest"
+    done 3< <(find files/claude -type f -print0)
     echo "✅ Done."
 fi
 
